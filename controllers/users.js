@@ -8,6 +8,7 @@ module.exports.renderRegister = (req, res) => {
 module.exports.registerUser = async (req, res, next) => {
     try {
         const { username, email, password } = req.body;
+        username = username.toLowerCase();
         const user = new User({ username, email });
         //register method was automatically created by passport-local-mongoose plugin 
         //This method registers user instance with the given password and user is saved in db
